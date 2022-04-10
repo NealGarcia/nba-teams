@@ -1,0 +1,23 @@
+.teams{
+    margin: 3.56em 10.63em auto 10.63em
+}
+
+.tableHead{
+    background-color: #074684;
+    color: white;
+    text-align: center;
+}
+
+tr{
+    border-radius: 5px !important;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bold;
+    /* remove bottom line from bootstrap styles */
+    border-bottom-style: hidden !important; 
+}
+
+tbody{
+    background-color: #F8F8Fd;
+    
+}
