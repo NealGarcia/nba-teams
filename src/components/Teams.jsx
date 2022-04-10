@@ -4,14 +4,23 @@ import { Table } from "react-bootstrap";
 import { API_URL_TEAMS } from "../config";
 import _ from "lodash";
 import "./Teams.css";
+import Panel from "./Panel";
 
 // Number of results per page
 const pageSize = 7;
 
 function Teams(props) {
   const [data, setData] = useState([]);
-  const [paginatedData, setPaginatedData] = useState()
-  const [currentPage, setCurrentPage] = useState(1)
+  const [paginatedData, setPaginatedData] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [showPanel, setShowPanel] = useState(false);
+  const [teamData, setTeamData] = useState("")
+
+  const handleClose = () => setShowPanel(false);
+  // const handleShow = () => {
+  //   setShowPanel(true);
+  //   setTeamData(team.data);
+  // };
 
   // Fetch data from API
   useEffect(() => {
@@ -20,7 +29,7 @@ function Teams(props) {
       .then((json) => {
         console.log(data);
         setData(json.data);
-        setPaginatedData(_(json.data).slice(0).take(pageSize).value())
+        setPaginatedData(_(json.data).slice(0).take(pageSize).value());
       })
       .catch(console.error);
   }, []);
@@ -30,25 +39,24 @@ function Teams(props) {
   if (pageCount === 1) return null;
   const pages = _.range(1, pageCount + 1);
 
-  const pagination = (pageNum=>{
-    setCurrentPage(pageNum)
-    const startIndex = (pageNum - 1) * pageSize
-    const paginatedData = _(data).slice(startIndex).take(pageSize).value()
-    setPaginatedData(paginatedData)
-
-  })
+  const pagination = (pageNum) => {
+    setCurrentPage(pageNum);
+    const startIndex = (pageNum - 1) * pageSize;
+    const paginatedData = _(data).slice(startIndex).take(pageSize).value();
+    setPaginatedData(paginatedData);
+  };
 
   // If data equals undefined (not yet loaded) render loading animation
-  if(data === undefined || paginatedData === undefined)
-    return(
-      <div className = "d-flex justify-content-center mt-5 mb-5">
-        <CircularProgress/>
+  if (data === undefined || paginatedData === undefined)
+    return (
+      <div className="d-flex justify-content-center mt-5 mb-5">
+        <CircularProgress />
       </div>
-    )
+    );
 
   return (
     <div className="teams">
-      <Table responsive hover className="table">
+      <Table responsive="xl" hover className="table">
         <thead className="tableHead">
           <tr>
             <th className="pt-3 pb-3">Team Name</th>
@@ -61,7 +69,10 @@ function Teams(props) {
         <tbody>
           {/* Map through data and display row & data for each team */}
           {paginatedData.map((team) => (
-            <tr>
+            <tr onClick={()=>{
+              setShowPanel(true)
+              setTeamData(team)
+            }} key={team.id}>
               <td className="pt-3 pb-3">{team.name}</td>
               <td className="pt-3 pb-3">{team.city}</td>
               <td className="pt-3 pb-3">{team.abbreviation}</td>
@@ -71,27 +82,29 @@ function Teams(props) {
           ))}
         </tbody>
       </Table>
-      
+
       {/* Display Pagination buttons */}
       <nav>
-        <ul className = "pagination">
-          {
-            pages.map((page) => (
-              <li className = {
+        <ul className="pagination">
+          {pages.map((page) => (
+            <li
+              className={
                 page === currentPage ? "page-item active" : "page-item"
               }
-              >
-                <p className = "page-link"
-                onClick = {()=> pagination(page)}
-                >{page}</p>
-              </li>
-            ))
-          }
-
+            >
+              <p className="page-link" onClick={() => pagination(page)}>
+                {page}
+              </p>
+            </li>
+          ))}
         </ul>
-      </nav> 
+      </nav>
 
-
+      <Panel
+        showPanel={showPanel}
+        handleClose={handleClose}
+        teamData={teamData}
+      />
     </div>
   );
 }
