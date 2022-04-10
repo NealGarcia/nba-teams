@@ -19,5 +19,8 @@ tr{
 
 tbody{
     background-color: #F8F8Fd;
-    
+}
+
+.pagination{
+    float: right;
 }
