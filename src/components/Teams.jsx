@@ -40,7 +40,11 @@ function Teams(props) {
 
   // If data equals undefined (not yet loaded) render loading animation
   if(data === undefined || paginatedData === undefined)
-    return(<CircularProgress/>)
+    return(
+      <div className = "d-flex justify-content-center mt-5 mb-5">
+        <CircularProgress/>
+      </div>
+    )
 
   return (
     <div className="teams">
