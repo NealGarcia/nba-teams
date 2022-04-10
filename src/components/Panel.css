@@ -1,4 +1,22 @@
+.panelHeader {
+    display: flex;
+    justify-content: space-between;
+    background: #F2F2F2;
+    font-weight: 700;
+    height: 5em;
+}
+
+.teamName{
+    font-size: 2em;
+    font-weight: 700;
+    margin-top: 19px;
+    margin-left: 45px;
+}
+
 .button {
+    font-size: 2em;
+    margin-top: 1.5em;
+    margin-right: 1.5em;
     float: right;
     cursor: pointer;
 }
