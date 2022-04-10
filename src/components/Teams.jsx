@@ -17,10 +17,6 @@ function Teams(props) {
   const [teamData, setTeamData] = useState("")
 
   const handleClose = () => setShowPanel(false);
-  // const handleShow = () => {
-  //   setShowPanel(true);
-  //   setTeamData(team.data);
-  // };
 
   // Fetch data from API
   useEffect(() => {
