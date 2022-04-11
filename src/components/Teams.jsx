@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { CircularProgress } from "@material-ui/core";
 import { Table } from "react-bootstrap";
 import { API_URL_TEAMS, API_URL_GAMES } from "../config";
-import _ from "lodash";
+import _, { indexOf } from "lodash";
 import "./Teams.css";
 import Panel from "./Panel";
+import TeamRow from "./TeamRow"
 
 // Number of results per page
 const pageSize = 7;
@@ -13,9 +14,8 @@ function Teams(props) {
   const [data, setData] = useState([]);
   const [paginatedData, setPaginatedData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const [showPanel, setShowPanel] = useState(false);
   const [teamData, setTeamData] = useState({})
-  const [gameData, setGameData] = useState({})
+
 
   // Fetch teams data from API
   useEffect(() => {
@@ -31,25 +31,6 @@ function Teams(props) {
       setPaginatedData(_(json.data).slice(0).take(pageSize).value());
     })
     .catch(console.error);
-  }
-
-  const fetchGameData = () => {
-    const url = `${API_URL_GAMES}?seasons[]=2021&team_ids[]=${teamData.id}`
-    console.log(url)
-    fetch(`${API_URL_GAMES}?seasons[]=2021&team_ids[]=${teamData.id}`)
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res.data)
-        setGameData({
-          totalGames: res.meta.total_count,
-          date: res.data[0].date,
-          homeTeam: res.data[0].home_team.name,
-          homeTeamScore: res.data[0].home_team_score,
-          visitorTeam: res.data[0].visitor_team.name,
-          visitorTeamScore: res.data[0].visitor_team_score
-        });
-      })
-      .catch(console.error);
   }
 
   // Calculate # of pages
@@ -87,17 +68,23 @@ function Teams(props) {
         <tbody>
           {/* Map through data and display row & data for each team */}
           {paginatedData.map((team) => (
-            <tr onClick={()=>{
-              setShowPanel(true)
-              setTeamData(team)
-              fetchGameData()
-            }} key={team.id}>
-              <td className="pt-3 pb-3">{team.name}</td>
-              <td className="pt-3 pb-3">{team.city}</td>
-              <td className="pt-3 pb-3">{team.abbreviation}</td>
-              <td className="pt-3 pb-3">{team.conference}</td>
-              <td className="pt-3 pb-3">{team.division}</td>
+            <tr>
+              <TeamRow
+                team = {team}
+                key = {team.id}
+                />
             </tr>
+            // <tr onClick={()=>{
+            //   setShowPanel(true)
+            //   setTeamData(team)
+            //   fetchGameData(teamData.id)
+            // }} key={team.id}>
+            //   <td className="pt-3 pb-3">{team.name}</td>
+            //   <td className="pt-3 pb-3">{team.city}</td>
+            //   <td className="pt-3 pb-3">{team.abbreviation}</td>
+            //   <td className="pt-3 pb-3">{team.conference}</td>
+            //   <td className="pt-3 pb-3">{team.division}</td>
+            // </tr>
           ))}
         </tbody>
       </Table>
@@ -109,7 +96,9 @@ function Teams(props) {
             <li
               className={
                 page === currentPage ? "page-item active" : "page-item"
+                
               }
+              key = {page}
             >
               <p className="page-link" onClick={() => pagination(page)}>
                 {page}
@@ -118,13 +107,13 @@ function Teams(props) {
           ))}
         </ul>
       </nav>
-
+{/* 
       <Panel
         setShowPanel = {setShowPanel}
         showPanel={showPanel}
         teamData={teamData}
         gameData={gameData}
-      />
+      /> */}
     </div>
   );
 }

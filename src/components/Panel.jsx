@@ -4,12 +4,36 @@ import "./Panel.css";
 import CloseIcon from "@material-ui/icons/Close";
 import { CircularProgress } from "@material-ui/core";
 
-function Panel({ showPanel, setShowPanel, teamData, gameData}) {
+
+function Panel({ showPanel, setShowPanel, team, gameData}) {
   const handleClose = () => {
     setShowPanel(false);
   }
 
-  const teamName = teamData.name
+  // useEffect(() => {
+  //   fetchGameData()
+  // })
+
+  // const fetchGameData = () => {
+  //   const url = `${API_URL_GAMES}?seasons[]=2021&team_ids[]=${team.id}`
+  //   console.log(url)
+  //   fetch(`${API_URL_GAMES}?seasons[]=2021&team_ids[]=${team.id}`)
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       console.log(res.data)
+  //       setGameData({
+  //         totalGames: res.meta.total_count,
+  //         date: res.data[0].date,
+  //         homeTeam: res.data[0].home_team.name,
+  //         homeTeamScore: res.data[0].home_team_score,
+  //         visitorTeam: res.data[0].visitor_team.name,
+  //         visitorTeamScore: res.data[0].visitor_team_score
+  //       });
+  //     })
+  //     .catch(console.error);
+  // }
+
+  const teamName = team.name
 
   return (
     <Offcanvas placement="end" show={showPanel} onHide={handleClose} className = "panel">
@@ -23,7 +47,7 @@ function Panel({ showPanel, setShowPanel, teamData, gameData}) {
         <Container>
           <Row>
             <Col>Team Full Name:</Col>
-            <Col>{teamData.full_name}</Col>
+            <Col>{team.full_name}</Col>
           </Row>
           <Row>
             <Col>Total Games in 2021: </Col>
