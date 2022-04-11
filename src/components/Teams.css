@@ -6,6 +6,8 @@
     background-color: #074684;
     color: white;
     text-align: center;
+
+    border-radius: 5px !important; /* not working */
 }
 
 tbody{
@@ -19,10 +21,12 @@ tbody{
 tr{
     text-align: center;
     width: 100%;
-    border-radius: 5px !important;
+    
     font-size: 1.5em;
     font-weight: bold;
     /* remove bottom line from bootstrap styles */
     border-bottom-style: hidden !important; 
-}
 
+    border-radius: 5px !important; /* not working */
+    margin-bottom: 5px; /* not working */
+}

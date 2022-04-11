@@ -53,7 +53,7 @@ function Teams(props) {
   return (
     <div className="teams">
       <Table responsive="xl" hover className="table">
-        <thead className="tableHead">
+        <thead className="tableHead" >
           <tr>
             <th className="pt-3 pb-3">Team Name</th>
             <th className="pt-3 pb-3">City</th>

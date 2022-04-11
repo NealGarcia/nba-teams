@@ -30,6 +30,7 @@ function TeamRow({ team }) {
   return (
     <>
       <tr
+        className = "mb-4"
         onClick={() => {
           setShowPanel(true);
           fetchGameData();
