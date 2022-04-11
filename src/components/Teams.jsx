@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { CircularProgress } from "@material-ui/core";
 import { Table } from "react-bootstrap";
-import { API_URL_TEAMS, API_URL_GAMES } from "../config";
+import { API_URL_TEAMS } from "../config";
 import _, { indexOf } from "lodash";
 import "./Teams.css";
-import Panel from "./Panel";
-import TeamRow from "./TeamRow"
+import TeamRow from "./TeamRow";
 
 // Number of results per page
 const pageSize = 7;
@@ -14,24 +13,22 @@ function Teams(props) {
   const [data, setData] = useState([]);
   const [paginatedData, setPaginatedData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const [teamData, setTeamData] = useState({})
-
 
   // Fetch teams data from API
   useEffect(() => {
-    fetchTeamData()
+    fetchTeamData();
   }, []);
 
   const fetchTeamData = () => {
     fetch(API_URL_TEAMS)
-    .then((res) => res.json())
-    .then((json) => {
-      console.log(json.data);
-      setData(json.data);
-      setPaginatedData(_(json.data).slice(0).take(pageSize).value());
-    })
-    .catch(console.error);
-  }
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json.data);
+        setData(json.data);
+        setPaginatedData(_(json.data).slice(0).take(pageSize).value());
+      })
+      .catch(console.error);
+  };
 
   // Calculate # of pages
   const pageCount = data ? Math.ceil(data.length / pageSize) : 0;
@@ -69,22 +66,8 @@ function Teams(props) {
           {/* Map through data and display row & data for each team */}
           {paginatedData.map((team) => (
             <tr>
-              <TeamRow
-                team = {team}
-                key = {team.id}
-                />
+              <TeamRow team={team} key={team.id} />
             </tr>
-            // <tr onClick={()=>{
-            //   setShowPanel(true)
-            //   setTeamData(team)
-            //   fetchGameData(teamData.id)
-            // }} key={team.id}>
-            //   <td className="pt-3 pb-3">{team.name}</td>
-            //   <td className="pt-3 pb-3">{team.city}</td>
-            //   <td className="pt-3 pb-3">{team.abbreviation}</td>
-            //   <td className="pt-3 pb-3">{team.conference}</td>
-            //   <td className="pt-3 pb-3">{team.division}</td>
-            // </tr>
           ))}
         </tbody>
       </Table>
@@ -96,9 +79,8 @@ function Teams(props) {
             <li
               className={
                 page === currentPage ? "page-item active" : "page-item"
-                
               }
-              key = {page}
+              key={page}
             >
               <p className="page-link" onClick={() => pagination(page)}>
                 {page}
@@ -107,13 +89,6 @@ function Teams(props) {
           ))}
         </ul>
       </nav>
-{/* 
-      <Panel
-        setShowPanel = {setShowPanel}
-        showPanel={showPanel}
-        teamData={teamData}
-        gameData={gameData}
-      /> */}
     </div>
   );
 }
