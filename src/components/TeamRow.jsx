@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Table } from "react-bootstrap";
 import Panel from "./Panel";
 import { API_URL_GAMES } from "../config";
+import "./TeamRow.css";
 
 function TeamRow({ team }) {
   const [showPanel, setShowPanel] = useState(false);
@@ -26,18 +28,18 @@ function TeamRow({ team }) {
   };
 
   return (
-    <div>
+    <>
       <tr
         onClick={() => {
           setShowPanel(true);
           fetchGameData();
         }}
       >
-        <td className="pt-3 pb-3">{team.name}</td>
-        <td className="pt-3 pb-3">{team.city}</td>
-        <td className="pt-3 pb-3">{team.abbreviation}</td>
-        <td className="pt-3 pb-3">{team.conference}</td>
-        <td className="pt-3 pb-3">{team.division}</td>
+        <td className="pt-4 pb-3">{team.name}</td>
+        <td className="pt-4 pb-3">{team.city}</td>
+        <td className="pt-4 pb-3">{team.abbreviation}</td>
+        <td className="pt-4 pb-3">{team.conference}</td>
+        <td className="pt-4 pb-3">{team.division}</td>
       </tr>
       <Panel
         setShowPanel={setShowPanel}
@@ -45,7 +47,7 @@ function TeamRow({ team }) {
         team={team}
         gameData={gameData}
       />
-    </div>
+    </>
   );
 }
 

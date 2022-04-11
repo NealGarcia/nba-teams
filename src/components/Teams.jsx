@@ -65,9 +65,7 @@ function Teams(props) {
         <tbody>
           {/* Map through data and display row & data for each team */}
           {paginatedData.map((team) => (
-            <tr>
-              <TeamRow team={team} key={team.id} />
-            </tr>
+            <TeamRow team={team} key={team.id} />
           ))}
         </tbody>
       </Table>

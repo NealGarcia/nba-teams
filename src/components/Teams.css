@@ -8,20 +8,21 @@
     text-align: center;
 }
 
-tr{
-    border-radius: 5px !important;
-    font-size: 1.5em;
-    text-align: center;
-    font-weight: bold;
-    /* remove bottom line from bootstrap styles */
-    border-bottom-style: hidden !important; 
-}
-
 tbody{
-    background-color: #F8F8Fd;
+    background-color: #F8FBFD;
 }
 
 .pagination{
     float: right;
+}
+
+tr{
+    text-align: center;
+    width: 100%;
+    border-radius: 5px !important;
+    font-size: 1.5em;
+    font-weight: bold;
+    /* remove bottom line from bootstrap styles */
+    border-bottom-style: hidden !important; 
 }
 

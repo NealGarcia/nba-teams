@@ -23,4 +23,5 @@
 
 .panel{
     width: 41.5em;
+    z-index: 1;
 }
