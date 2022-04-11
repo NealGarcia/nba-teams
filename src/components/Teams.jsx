@@ -18,7 +18,7 @@ function Teams(props) {
 
   const handleClose = () => setShowPanel(false);
 
-  // Fetch data from API
+  // Fetch teams data from API
   useEffect(() => {
     fetch(API_URL_TEAMS)
       .then((res) => res.json())
