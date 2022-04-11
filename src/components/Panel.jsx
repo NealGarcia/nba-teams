@@ -83,7 +83,9 @@ function Panel({ showPanel, setShowPanel, team, gameData }) {
             </Row>
           </Container>
         ) : (
+        <div className="d-flex justify-content-center mt-5 mb-5">
           <CircularProgress />
+        </div>
         )}
       </Offcanvas.Body>
     </Offcanvas>
