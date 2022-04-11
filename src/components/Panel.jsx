@@ -1,48 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Offcanvas, Container, Row, Col } from "react-bootstrap";
 import "./Panel.css";
 import CloseIcon from "@material-ui/icons/Close";
-import { API_URL_GAMES } from "../config";
 import { CircularProgress } from "@material-ui/core";
 
-function Panel({ showPanel, handleClose, teamData }) {
-  const [gameData, setGameData] = useState({
-    totalGames: null,
-    date: null,
-    homeTeam: null,
-    homeTeamScore: null,
-    visitorTeam: null,
-    visitorTeamScore: null,
-  });
+function Panel({ showPanel, setShowPanel, teamData, gameData}) {
+  const handleClose = () => {
+    setShowPanel(false);
+  }
 
   const teamName = teamData.name
-
-  // Fetch game data from API using team ID
-  useEffect(() => {
-    fetch(`${API_URL_GAMES}?seasons[]=2021&team_ids[]=${teamData.id}`)
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res.data[0])
-        setGameData({
-          totalGames: res.meta.total_count,
-          date: res.data[0].date,
-          homeTeam: res.data[0].home_team.name,
-          homeTeamScore: res.data[0].home_team_score,
-          vistorTeam: res.data[0].visitor_team.name,
-          visitorTeamScore: res.data[0].visitor_team_score
-        });
-        console.log(gameData);
-      })
-      .catch(console.error);
-  }, []);
-
-  if (gameData === undefined)
-    return (
-      <div className="d-flex justify-content-center mt-5 mb-5">
-        <CircularProgress />
-      </div>
-    );
-
 
   return (
     <Offcanvas placement="end" show={showPanel} onHide={handleClose} className = "panel">
@@ -51,7 +18,8 @@ function Panel({ showPanel, handleClose, teamData }) {
         <CloseIcon className="button" onClick={handleClose} />
       </Offcanvas.Title>
       <Offcanvas.Body>
-    
+      {(gameData.date != null)
+          ?
         <Container>
           <Row>
             <Col>Team Full Name:</Col>
@@ -66,32 +34,27 @@ function Panel({ showPanel, handleClose, teamData }) {
           </Row>
           <Row>
             <Col><h6>Date</h6></Col>
-            <Col><h6>  </h6></Col>
+            <Col><h6>{gameData.date.substring(0, 10)}</h6></Col>
           </Row>
           <Row>
             <Col><h6>Home Team</h6></Col>
-            <Col><h6>  </h6></Col>
+            <Col><h6>{gameData.homeTeam}</h6></Col>
           </Row>
           <Row>
             <Col><h6>Home Team Score</h6></Col>
-            <Col><h6>  </h6></Col>
+            <Col><h6>{gameData.homeTeamScore}</h6></Col>
           </Row>
           <Row>
             <Col><h6>Visitor Team</h6></Col>
-            <Col><h6>  </h6></Col>
+            <Col><h6>{gameData.visitorTeam}</h6></Col>
           </Row>
           <Row>
-            <Col><h6>Visitor Team</h6></Col>
-            <Col><h6>  </h6></Col>
+            <Col><h6>Visitor Team Score</h6></Col>
+            <Col><h6>{gameData.visitorTeamScore}</h6></Col>
           </Row>
         </Container>
-
-
-
-
-
-
-
+        :
+          <CircularProgress />}
       </Offcanvas.Body>
     </Offcanvas>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CircularProgress } from "@material-ui/core";
 import { Table } from "react-bootstrap";
-import { API_URL_TEAMS } from "../config";
+import { API_URL_TEAMS, API_URL_GAMES } from "../config";
 import _ from "lodash";
 import "./Teams.css";
 import Panel from "./Panel";
@@ -14,21 +14,43 @@ function Teams(props) {
   const [paginatedData, setPaginatedData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [showPanel, setShowPanel] = useState(false);
-  const [teamData, setTeamData] = useState("")
-
-  const handleClose = () => setShowPanel(false);
+  const [teamData, setTeamData] = useState({})
+  const [gameData, setGameData] = useState({})
 
   // Fetch teams data from API
   useEffect(() => {
+    fetchTeamData()
+  }, []);
+
+  const fetchTeamData = () => {
     fetch(API_URL_TEAMS)
+    .then((res) => res.json())
+    .then((json) => {
+      console.log(json.data);
+      setData(json.data);
+      setPaginatedData(_(json.data).slice(0).take(pageSize).value());
+    })
+    .catch(console.error);
+  }
+
+  const fetchGameData = () => {
+    const url = `${API_URL_GAMES}?seasons[]=2021&team_ids[]=${teamData.id}`
+    console.log(url)
+    fetch(`${API_URL_GAMES}?seasons[]=2021&team_ids[]=${teamData.id}`)
       .then((res) => res.json())
-      .then((json) => {
-        console.log(json.data);
-        setData(json.data);
-        setPaginatedData(_(json.data).slice(0).take(pageSize).value());
+      .then((res) => {
+        console.log(res.data)
+        setGameData({
+          totalGames: res.meta.total_count,
+          date: res.data[0].date,
+          homeTeam: res.data[0].home_team.name,
+          homeTeamScore: res.data[0].home_team_score,
+          visitorTeam: res.data[0].visitor_team.name,
+          visitorTeamScore: res.data[0].visitor_team_score
+        });
       })
       .catch(console.error);
-  }, []);
+  }
 
   // Calculate # of pages
   const pageCount = data ? Math.ceil(data.length / pageSize) : 0;
@@ -68,6 +90,7 @@ function Teams(props) {
             <tr onClick={()=>{
               setShowPanel(true)
               setTeamData(team)
+              fetchGameData()
             }} key={team.id}>
               <td className="pt-3 pb-3">{team.name}</td>
               <td className="pt-3 pb-3">{team.city}</td>
@@ -97,9 +120,10 @@ function Teams(props) {
       </nav>
 
       <Panel
+        setShowPanel = {setShowPanel}
         showPanel={showPanel}
-        handleClose={handleClose}
         teamData={teamData}
+        gameData={gameData}
       />
     </div>
   );
