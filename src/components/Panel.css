@@ -1,3 +1,7 @@
+.panel{
+    width: 1000px;
+}
+
 .panelHeader {
     display: flex;
     justify-content: space-between;
@@ -21,7 +25,6 @@
     cursor: pointer;
 }
 
-.panel{
-    width: 41.5em;
-    z-index: 1;
+.gameDetails {
+    font-weight: 700;
 }

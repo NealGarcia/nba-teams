@@ -14,7 +14,6 @@ function Panel({ showPanel, setShowPanel, team, gameData }) {
       onHide={() => {
         setShowPanel(false);
       }}
-      className="panel"
     >
       <Offcanvas.Title className="panelHeader">
         <h3 className="teamName">{teamName}</h3>
@@ -27,58 +26,58 @@ function Panel({ showPanel, setShowPanel, team, gameData }) {
       </Offcanvas.Title>
       <Offcanvas.Body>
         {gameData.date != null ? (
-          <Container>
+          <Container className = "gameInfo">
             <Row>
-              <Col>Team Full Name:</Col>
-              <Col>{team.full_name}</Col>
+              <Col className = "mt-4">Team Full Name:</Col>
+              <Col className = "mt-4">{team.full_name}</Col>
             </Row>
             <Row>
-              <Col>Total Games in 2021: </Col>
-              <Col>{gameData.totalGames}</Col>
+              <Col className = "mt-4">Total Games in 2021: </Col>
+              <Col className = "mt-4">{gameData.totalGames}</Col>
             </Row>
             <Row>
-              <Col>
-                <h6>Random Game Details:</h6>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <h6>Date</h6>
-              </Col>
-              <Col>
-                <h6>{gameData.date.substring(0, 10)}</h6>
+              <Col className = "mt-4">
+                <p className = "gameDetails">Random Game Details:</p>
               </Col>
             </Row>
             <Row>
-              <Col>
-                <h6>Home Team</h6>
+              <Col className = "mt-4 ms-3">
+                <p className = "gameDetails">Date</p>
               </Col>
-              <Col>
-                <h6>{gameData.homeTeam}</h6>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <h6>Home Team Score</h6>
-              </Col>
-              <Col>
-                <h6>{gameData.homeTeamScore}</h6>
+              <Col className = "mt-4 ms-3">
+                <p className = "gameDetails">{gameData.date.substring(0, 10)}</p>
               </Col>
             </Row>
             <Row>
-              <Col>
-                <h6>Visitor Team</h6>
+              <Col className = "mt-4 ms-3">
+                <p className = "gameDetails">Home Team</p>
               </Col>
-              <Col>
-                <h6>{gameData.visitorTeam}</h6>
+              <Col className = "mt-4 ms-3">
+                <p className = "gameDetails">{gameData.homeTeam}</p>
               </Col>
             </Row>
             <Row>
-              <Col>
-                <h6>Visitor Team Score</h6>
+              <Col className = "mt-4 ms-3">
+                <p className = "gameDetails">Home Team Score</p>
               </Col>
-              <Col>
-                <h6>{gameData.visitorTeamScore}</h6>
+              <Col className = "mt-4 ms-3">
+                <p className = "gameDetails">{gameData.homeTeamScore}</p>
+              </Col>
+            </Row>
+            <Row>
+              <Col className = "mt-4 ms-3">
+                <p className = "gameDetails">Visitor Team</p>
+              </Col>
+              <Col className = "mt-4 ms-3">
+                <p className = "gameDetails">{gameData.visitorTeam}</p>
+              </Col>
+            </Row>
+            <Row>
+              <Col className = "mt-4 ms-3">
+                <p className = "gameDetails">Visitor Team Score</p>
+              </Col>
+              <Col className = "mt-4 ms-3">
+                <p className = "gameDetails">{gameData.visitorTeamScore}</p>
               </Col>
             </Row>
           </Container>
