@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CircularProgress } from "@material-ui/core";
+import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md'
+
 import { Table } from "react-bootstrap";
 import { API_URL_TEAMS } from "../config";
 import _, { indexOf } from "lodash";
@@ -13,6 +15,7 @@ function Teams(props) {
   const [data, setData] = useState([]);
   const [paginatedData, setPaginatedData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
+  const [icon, setIcon] = useState(false)
 
   // Fetch teams data from API
   useEffect(() => {
@@ -42,6 +45,13 @@ function Teams(props) {
     setPaginatedData(paginatedData);
   };
 
+  // Page sort function sets state of paginated data to reversed data array
+  const sort = () => {
+    setData(data.reverse())
+    setPaginatedData(_(data).slice(0).take(pageSize).value())
+  }
+
+
   // If data equals undefined (not yet loaded) render loading animation
   if (data === undefined || paginatedData === undefined)
     return (
@@ -56,7 +66,24 @@ function Teams(props) {
         <thead className="tableHead" >
           <tr>
             <th className="pt-3 pb-3">Team Name</th>
-            <th className="pt-3 pb-3">City</th>
+            <th className="pt-3 pb-3">City
+            {icon ? <MdOutlineArrowDropUp
+              className = "sortIcon"
+              onClick={() => {
+                setIcon(false)
+                sort()
+              }}
+
+            /> 
+            : 
+            <MdOutlineArrowDropDown
+            className = "sortIcon"
+            onClick={() => {
+              setIcon(true)
+              sort()
+            }}
+            />}
+            </th>
             <th className="pt-3 pb-3">Abbreviation</th>
             <th className="pt-3 pb-3">Conference</th>
             <th className="pt-3 pb-3">Division</th>

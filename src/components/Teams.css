@@ -30,3 +30,7 @@ tr{
     border-radius: 5px !important; /* not working */
     margin-bottom: 5px; /* not working */
 }
+
+.sortIcon{
+    cursor: pointer;
+}
