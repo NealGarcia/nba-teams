@@ -49,6 +49,7 @@ function Teams(props) {
   const sort = () => {
     setData(data.reverse())
     setPaginatedData(_(data).slice(0).take(pageSize).value())
+    setCurrentPage(1)
   }
 
 
@@ -98,7 +99,7 @@ function Teams(props) {
       </Table>
 
       {/* Display Pagination buttons */}
-      <nav>
+      <nav className = "mt-4">
         <ul className="pagination">
           {pages.map((page) => (
             <li
