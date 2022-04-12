@@ -1,16 +1,10 @@
 import React from "react";
 import { Offcanvas, Container, Row, Col } from "react-bootstrap";
 import CloseIcon from "@material-ui/icons/Close";
-import { CircularProgress } from "@material-ui/core";
 import "./SearchResults.css";
+import PlayerRow from "./PlayerRow";
 
-function SearchResults({
-  setShowResults,
-  showResults,
-  playerData,
-  searchValue,
-}) {
-  console.log(playerData);
+function SearchResults({ setShowResults, showResults, playerData, searchValue }) {
   return (
     <div>
       <Offcanvas
@@ -40,10 +34,13 @@ function SearchResults({
             </Row>
             {playerData.length !== 0 ? (
               playerData.map((player) => (
-                <Row className="playerRow">
-                  <Col>
-                    {player.first_name} {player.last_name}
-                  </Col>
+                <Row
+                  className="playerRow"
+                  key={player.id}
+                >
+                  <PlayerRow 
+                    player={player}
+                    />
                 </Row>
               ))
             ) : (

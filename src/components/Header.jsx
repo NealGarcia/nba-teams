@@ -18,10 +18,10 @@ function Header(props) {
     fetch(`${API_URL_PLAYERS}?search=${searchValue}`)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json.data);
-        setPlayerData(json.data);
+        console.log(json.data)
+        setPlayerData(json.data)
       })
-      .catch(console.error);
+      .catch(console.error)
   };
 
   console.log(playerData)
@@ -32,7 +32,7 @@ function Header(props) {
       <form className = "search" onSubmit={(e) => {
             e.preventDefault()
             fetchPlayerData(searchValue)
-            setShowResults(true);
+            setShowResults(true)
       }}>
             <input type = "text" placeholder = "Search Players" value = {searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
             <button type = "submit" className = "searchIcon">
@@ -44,7 +44,6 @@ function Header(props) {
         showResults={showResults}
         playerData={playerData}
         searchValue = {searchValue}
-        setPlayerData = {setPlayerData}
       />
     </div>
   );

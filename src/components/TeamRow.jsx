@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Table } from "react-bootstrap";
 import Panel from "./Panel";
 import { API_URL_GAMES } from "../config";
 
@@ -9,8 +8,6 @@ function TeamRow({ team }) {
   const [highlighted, setHighlighted] = useState(false)
 
   const fetchGameData = () => {
-    const url = `${API_URL_GAMES}?seasons[]=2021&team_ids[]=${team.id}`;
-    console.log(url);
     fetch(`${API_URL_GAMES}?seasons[]=2021&team_ids[]=${team.id}`)
       .then((res) => res.json())
       .then((res) => {
