@@ -7,6 +7,7 @@ import "./TeamRow.css";
 function TeamRow({ team }) {
   const [showPanel, setShowPanel] = useState(false);
   const [gameData, setGameData] = useState({});
+  const [highlighted, setHighlighted] = useState(false)
 
   const fetchGameData = () => {
     const url = `${API_URL_GAMES}?seasons[]=2021&team_ids[]=${team.id}`;
@@ -27,13 +28,19 @@ function TeamRow({ team }) {
       .catch(console.error);
   };
 
+  const highlight = () => {
+    setHighlighted(!highlighted)
+  }
+
   return (
     <>
       <tr
         className = "rounded mb-4"
+        style = {{backgroundColor: !highlighted ? '#fdf8fd' : '#d4d7d9'}}
         onClick={() => {
           setShowPanel(true);
           fetchGameData();
+          highlight()
         }}
       >
         <td className="pt-4 pb-3">{team.name}</td>
@@ -47,6 +54,7 @@ function TeamRow({ team }) {
         showPanel={showPanel}
         team={team}
         gameData={gameData}
+        highlight={highlight}
       />
     </>
   );

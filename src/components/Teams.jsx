@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { CircularProgress } from "@material-ui/core";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md'
-
 import { Table } from "react-bootstrap";
 import { API_URL_TEAMS } from "../config";
 import _, { indexOf } from "lodash";

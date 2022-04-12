@@ -4,7 +4,7 @@ import "./Panel.css";
 import CloseIcon from "@material-ui/icons/Close";
 import { CircularProgress } from "@material-ui/core";
 
-function Panel({ showPanel, setShowPanel, team, gameData }) {
+function Panel({ showPanel, setShowPanel, team, gameData, highlight }) {
   const teamName = team.name;
 
   return (
@@ -12,7 +12,8 @@ function Panel({ showPanel, setShowPanel, team, gameData }) {
       placement="end"
       show={showPanel}
       onHide={() => {
-        setShowPanel(false);
+        setShowPanel(false)
+        highlight()
       }}
     >
       <Offcanvas.Title className="panelHeader">
@@ -20,7 +21,8 @@ function Panel({ showPanel, setShowPanel, team, gameData }) {
         <CloseIcon
           className="button"
           onClick={() => {
-            setShowPanel(false);
+            setShowPanel(false)
+            highlight()
           }}
         />
       </Offcanvas.Title>
