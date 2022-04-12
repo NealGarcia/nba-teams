@@ -4,8 +4,13 @@ import CloseIcon from "@material-ui/icons/Close";
 import { CircularProgress } from "@material-ui/core";
 import "./SearchResults.css";
 
-function SearchResults({ setShowResults, showResults, playerData, searchValue }) {
-    console.log(playerData)
+function SearchResults({
+  setShowResults,
+  showResults,
+  playerData,
+  searchValue,
+}) {
+  console.log(playerData);
   return (
     <div>
       <Offcanvas
@@ -16,7 +21,9 @@ function SearchResults({ setShowResults, showResults, playerData, searchValue })
         }}
       >
         <Offcanvas.Title className="panelHeader">
-          <h3 className = "headerTitle" id = "search">Search Results</h3>
+          <h3 className="headerTitle" id="search">
+            Search Results
+          </h3>
           <CloseIcon
             className="button"
             onClick={() => {
@@ -25,22 +32,26 @@ function SearchResults({ setShowResults, showResults, playerData, searchValue })
           />
         </Offcanvas.Title>
         <Offcanvas.Body>
-        {playerData !== 0 !== "" ? (
-            <Container className = "searchResults">
-                <Row>
-                    <Col className = "results">Showing results for: <span>{searchValue}</span></Col>
+          <Container className="searchResults">
+            <Row>
+              <Col className="results">
+                Showing results for: <span>{searchValue}</span>
+              </Col>
+            </Row>
+            {playerData.length !== 0 ? (
+              playerData.map((player) => (
+                <Row className="playerRow">
+                  <Col>
+                    {player.first_name} {player.last_name}
+                  </Col>
                 </Row>
-                {playerData.map((player) => (
-                    <Row className = "playerRow">
-                        <Col>{player.first_name} {player.last_name}</Col>
-                    </Row>
-                ))}
-            </Container>
-        ):(
-            <div className="d-flex justify-content-center mt-5 mb-5">
-          No Results Found
-        </div>
-        )}
+              ))
+            ) : (
+              <div className="d-flex justify-content-center mt-5 mb-5">
+                No Results Found
+              </div>
+            )}
+          </Container>
         </Offcanvas.Body>
       </Offcanvas>
     </div>
