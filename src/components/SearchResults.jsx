@@ -5,6 +5,7 @@ import { CircularProgress } from "@material-ui/core";
 import "./SearchResults.css";
 
 function SearchResults({ setShowResults, showResults, playerData, searchValue }) {
+    console.log(playerData)
   return (
     <div>
       <Offcanvas
@@ -24,7 +25,7 @@ function SearchResults({ setShowResults, showResults, playerData, searchValue })
           />
         </Offcanvas.Title>
         <Offcanvas.Body>
-        {playerData.length != 0 ? (
+        {playerData !== 0 ? (
             <Container className = "searchResults">
                 <Row>
                     <Col className = "results">Showing results for: <span>{searchValue}</span></Col>

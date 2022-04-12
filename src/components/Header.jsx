@@ -6,9 +6,7 @@ import SearchResults from "./SearchResults";
 
 function Header(props) {
     const [searchValue, setSearchValue] = useState("")
-    const [playerData, setPlayerData] = useState({
-      
-    })
+    const [playerData, setPlayerData] = useState([])
     const [showResults, setShowResults] = useState(false)
 
   // Fetch player data
