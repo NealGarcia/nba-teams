@@ -1,7 +1,13 @@
 .modalTitle{
     float: right;
+    font-weight: 700;
+    font-size: 2em;
 }
 
 .closeButton{
     cursor: pointer;
+}
+
+.modalHeader{
+   background-color:#F2F2F2;
 }
