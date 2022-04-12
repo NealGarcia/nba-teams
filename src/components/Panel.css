@@ -10,7 +10,7 @@
     height: 5em;
 }
 
-.teamName{
+.headerTitle{
     font-size: 2em;
     font-weight: 700;
     margin-top: 19px;
@@ -27,4 +27,9 @@
 
 .gameDetails {
     font-weight: 700;
+}
+
+#search{
+    font-size: 1.5em;
+    margin-top: 1em;
 }

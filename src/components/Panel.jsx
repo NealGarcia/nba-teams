@@ -17,7 +17,7 @@ function Panel({ showPanel, setShowPanel, team, gameData, highlight }) {
       }}
     >
       <Offcanvas.Title className="panelHeader">
-        <h3 className="teamName">{teamName}</h3>
+        <h3 className="headerTitle">{teamName}</h3>
         <CloseIcon
           className="button"
           onClick={() => {

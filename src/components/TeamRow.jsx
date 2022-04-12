@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Table } from "react-bootstrap";
 import Panel from "./Panel";
 import { API_URL_GAMES } from "../config";
-import "./TeamRow.css";
 
 function TeamRow({ team }) {
   const [showPanel, setShowPanel] = useState(false);
@@ -36,7 +35,7 @@ function TeamRow({ team }) {
     <>
       <tr
         className = "rounded mb-4"
-        style = {{backgroundColor: !highlighted ? '#fdf8fd' : '#d4d7d9'}}
+        style = {{backgroundColor: !highlighted ? '#fdf8fd' : '#dce0e3'}}
         onClick={() => {
           setShowPanel(true);
           fetchGameData();

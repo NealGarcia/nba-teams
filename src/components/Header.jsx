@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./Header.css";
 import Search from "@material-ui/icons/Search";
 import { API_URL_PLAYERS } from '../config'
-import Select from 'react-select'
+import SearchResults from "./SearchResults";
 
 function Header(props) {
     const [searchValue, setSearchValue] = useState("")
-    const [selectedValue, setSelectedValue] = useState(null);
-    const [playerData, setPlayerData] = useState({})
+    const [playerData, setPlayerData] = useState({
+      
+    })
+    const [showResults, setShowResults] = useState(false)
 
   // Fetch player data
   useEffect(() => {
@@ -24,14 +26,7 @@ function Header(props) {
       .catch(console.error);
   };
 
-  const handleInputChange = value => {
-    setSearchValue(value);
-  };
-
-  const handleChange = value => {
-    setSelectedValue(value);
-  }
-
+  console.log(playerData)
 
   return (
     <div className="mt-5" id = "container">
@@ -39,14 +34,20 @@ function Header(props) {
       <form className = "search" onSubmit={(e) => {
             e.preventDefault()
             fetchPlayerData(searchValue)
+            setShowResults(true);
       }}>
-            <input type = "text" value = {searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
+            <input type = "text" placeholder = "Search Players" value = {searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
             <button type = "submit" className = "searchIcon">
                 <Search/>
             </button>
       </form>
-      
-            {searchValue}
+      <SearchResults
+        setShowResults={setShowResults}
+        showResults={showResults}
+        playerData={playerData}
+        searchValue = {searchValue}
+        setPlayerData = {setPlayerData}
+      />
     </div>
   );
 }
