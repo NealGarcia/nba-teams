@@ -1,7 +1,26 @@
 .results{
     font-weight: 700;
+    margin-bottom: 1em;
 }
 
 .results span{
     font-weight: 400;
+}
+
+.playerRow{
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 5px;
+    color: #074684;
+    cursor: pointer;
+    background-color: #F8FBFD;
+    border-radius: 5px;
+}
+
+.playerRow:hover{
+    background-color: #dce0e3;
+}
+
+#search{
+    margin-bottom: 1em;
 }

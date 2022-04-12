@@ -25,13 +25,13 @@ function SearchResults({ setShowResults, showResults, playerData, searchValue })
           />
         </Offcanvas.Title>
         <Offcanvas.Body>
-        {playerData !== 0 ? (
+        {playerData !== 0 !== "" ? (
             <Container className = "searchResults">
                 <Row>
                     <Col className = "results">Showing results for: <span>{searchValue}</span></Col>
                 </Row>
                 {playerData.map((player) => (
-                    <Row>
+                    <Row className = "playerRow">
                         <Col>{player.first_name} {player.last_name}</Col>
                     </Row>
                 ))}
