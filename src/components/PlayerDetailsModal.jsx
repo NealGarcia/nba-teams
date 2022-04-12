@@ -2,7 +2,7 @@ import React from "react";
 import { Modal, Container, Row, Col } from "react-bootstrap";
 import CloseIcon from "@material-ui/icons/Close";
 import { CircularProgress } from "@material-ui/core";
-import "./PlayerDetailsModal.css";
+import "../styles/PlayerDetailsModal.css";
 
 function PlayerDetailsModal({ setShowDetailsModal, showDetailsModal, playerDetailData }) {
   return (

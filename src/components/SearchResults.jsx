@@ -1,7 +1,7 @@
 import React from "react";
 import { Offcanvas, Container, Row, Col } from "react-bootstrap";
 import CloseIcon from "@material-ui/icons/Close";
-import "./SearchResults.css";
+import "../styles/SearchResults.css";
 import PlayerRow from "./PlayerRow";
 
 function SearchResults({ setShowResults, showResults, playerData, searchValue }) {

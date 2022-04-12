@@ -4,7 +4,7 @@ import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from 'react-icons/md'
 import { Table } from "react-bootstrap";
 import { API_URL_TEAMS } from "../config";
 import _, { indexOf } from "lodash";
-import "./Teams.css";
+import "../styles/Teams.css";
 import TeamRow from "./TeamRow";
 
 // Number of results per page

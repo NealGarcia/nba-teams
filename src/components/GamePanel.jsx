@@ -1,6 +1,6 @@
 import React from "react";
 import { Offcanvas, Container, Row, Col } from "react-bootstrap";
-import "./GamePanel.css";
+import "../styles/GamePanel.css";
 import CloseIcon from "@material-ui/icons/Close";
 import { CircularProgress } from "@material-ui/core";
 

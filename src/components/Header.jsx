@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Header.css";
+import "../styles/Header.css";
 import Search from "@material-ui/icons/Search";
 import { API_URL_PLAYERS } from '../config'
 import SearchResults from "./SearchResults";
