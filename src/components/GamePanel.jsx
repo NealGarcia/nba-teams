@@ -1,10 +1,10 @@
 import React from "react";
 import { Offcanvas, Container, Row, Col } from "react-bootstrap";
-import "./Panel.css";
+import "./GamePanel.css";
 import CloseIcon from "@material-ui/icons/Close";
 import { CircularProgress } from "@material-ui/core";
 
-function Panel({ showPanel, setShowPanel, team, gameData, highlight }) {
+function GamePanel({ showPanel, setShowPanel, team, gameData, highlight }) {
   const teamName = team.name;
 
   return (
@@ -34,11 +34,11 @@ function Panel({ showPanel, setShowPanel, team, gameData, highlight }) {
               <Col className = "mt-4">{team.full_name}</Col>
             </Row>
             <Row>
-              <Col className = "mt-4">Total Games in 2021: </Col>
-              <Col className = "mt-4">{gameData.totalGames}</Col>
+              <Col className = "mt-5">Total Games in 2021: </Col>
+              <Col className = "mt-5">{gameData.totalGames}</Col>
             </Row>
             <Row>
-              <Col className = "mt-4">
+              <Col className = "mt-5">
                 <p className = "gameDetails">Random Game Details:</p>
               </Col>
             </Row>
@@ -93,4 +93,4 @@ function Panel({ showPanel, setShowPanel, team, gameData, highlight }) {
   );
 }
 
-export default Panel;
+export default GamePanel;

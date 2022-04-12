@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { Col } from "react-bootstrap";
 import { API_URL_PLAYERS } from "../config";
-import PlayerDetailsPanel from './PlayerDetailsPanel';
+import PlayerDetailsModal from './PlayerDetailsModal';
 
 function PlayerRow({ player, showResults, setShowResults }) {
-    const [showDetailsPanel, setShowDetailsPanel] = useState(false)
+    const [showDetailsModal, setShowDetailsModal] = useState(false)
     const [playerDetailData, setPlayerDetailData] = useState([])
 
     const fetchPlayerDetailData = () => {
         fetch(`${API_URL_PLAYERS}/${player.id}`)
           .then((res) => res.json())
           .then((res) => {
-            console.log(res);
             setPlayerDetailData(res);
           })
           .catch(console.error);
@@ -20,16 +19,14 @@ function PlayerRow({ player, showResults, setShowResults }) {
     return (
         <div>
             <Col onClick = {() => {
-                setShowDetailsPanel(true)
+                setShowDetailsModal(true)
                 fetchPlayerDetailData()
-                console.log("test success")
             }}>
-                    {player.first_name} {player.last_name} {player.id}
+                    {player.first_name} {player.last_name}
              </Col>
-             <PlayerDetailsPanel
-                setShowDetailsPanel = {setShowDetailsPanel}
-                showDetailsPanel = {showDetailsPanel}
-                player = {player}
+             <PlayerDetailsModal
+                setShowDetailsModal = {setShowDetailsModal}
+                showDetailsModal = {showDetailsModal}
                 playerDetailData = {playerDetailData}
              />
         </div>

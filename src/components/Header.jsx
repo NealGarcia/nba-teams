@@ -9,7 +9,7 @@ function Header(props) {
     const [playerData, setPlayerData] = useState([])
     const [showResults, setShowResults] = useState(false)
 
-  // Fetch player data
+  // Fetch player data from search value
   useEffect(() => {
     fetchPlayerData();
   }, []);
@@ -18,13 +18,10 @@ function Header(props) {
     fetch(`${API_URL_PLAYERS}?search=${searchValue}`)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json.data)
         setPlayerData(json.data)
       })
       .catch(console.error)
   };
-
-  console.log(playerData)
 
   return (
     <div className="mt-5" id = "container">

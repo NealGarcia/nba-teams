@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Panel from "./Panel";
+import GamePanel from "./GamePanel";
 import { API_URL_GAMES } from "../config";
 
 function TeamRow({ team }) {
@@ -11,7 +11,6 @@ function TeamRow({ team }) {
     fetch(`${API_URL_GAMES}?seasons[]=2021&team_ids[]=${team.id}`)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res.data);
         setGameData({
           totalGames: res.meta.total_count,
           date: res.data[0].date,
@@ -45,7 +44,7 @@ function TeamRow({ team }) {
         <td className="pt-4 pb-3">{team.conference}</td>
         <td className="pt-4 pb-3">{team.division}</td>
       </tr>
-      <Panel
+      <GamePanel
         setShowPanel={setShowPanel}
         showPanel={showPanel}
         team={team}

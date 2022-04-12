@@ -25,7 +25,6 @@ function Teams(props) {
     fetch(API_URL_TEAMS)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json.data);
         setData(json.data);
         setPaginatedData(_(json.data).slice(0).take(pageSize).value());
       })
