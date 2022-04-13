@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# NBA Teams
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A front-end, single-page application built with React, ReactBootstrap JavaScript, and CSS that utilizes third-party data from https://www.balldontlie.io/ and allows user to explore NBA teams, players, and games. 
 
-## Available Scripts
+- Teams are displayed in the form of table & rows and are displayed in alphabetical order by city - users can toggle ascending or descending order by clicking the arrow in the city column header.
 
-In the project directory, you can run:
+- Clicking on a row will highlight the selected team and will open a side panel that displas. detailed information of a game played by the team in season 2021.
 
-### `npm start`
+- Using the search bar will provide a list of player search results in a separate side panel. Clicking on a player will open a modal displaying the selected player's stats.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+View the deployed application here: https://www.nealgarcia.com/nba-teams
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Screen Shots
 
-### `npm test`
+## Installation and Setup Instructions
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Installation:
 
-### `npm run build`
+`npm install`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To Start Server:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`npm start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To Visit App:
 
-### `npm run eject`
+`localhost:3000/ideas`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Reflection
+This project was developed as a take-home assignment for a frontend UI developer position with the goal of the challenge being to build out a UI from a given Figma prototype. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I developed this project during a span of four-days. The strict rules of the challenge included using React as the framework, optional use of ReactBootstrap package to create the layout, and free-range to create components best suited to my solution.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Though it was optional, I chose to learn and use ReactBootstrap for styling and layout. This was my first time using ReactBootstrap components, and I found it easy to use with its components and existing stylesheets. However, I wasn't able to modify some of the predefined styles of the `Table` component, for example: `border-radius`, and spacing between rows not seeming to work.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Extra credits included implementing search and sort, as well as writing unit test cases with Cypress. I was able to implement search and sort, however, writing unit test cases in Cypress is planned for the next iteration.
