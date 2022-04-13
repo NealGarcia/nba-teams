@@ -1,6 +1,6 @@
 # NBA Teams
 
-A front-end, single-page application built with React, ReactBootstrap JavaScript, and CSS that utilizes third-party data from https://www.balldontlie.io/ and allows user to explore NBA teams, players, and games. 
+A front-end, single-page application built with React, ReactBootstrap JavaScript, and CSS that utilizes third-party data from https://www.balldontlie.io/ that allows users to explore NBA teams, players, and games. 
 
 - Teams are displayed in the form of table & rows and are displayed in alphabetical order by city - users can toggle ascending or descending order by clicking the arrow in the city column header.
 
@@ -44,6 +44,6 @@ This project was developed as a take-home assignment for a frontend UI developer
 
 The strict rules of the challenge included using React as the framework, optional use of ReactBootstrap package to create the layout, and free-range to create components best suited to my solution.
 
-Though it was optional, I chose to learn and use ReactBootstrap for styling and layout. This was my first time using ReactBootstrap components, and I found it easy to use with its components and existing stylesheets. However, I wasn't able to modify some of the predefined styles of the `Table` component, for example: `border-radius`, and spacing between rows not seeming to work.
+Though it was optional, I chose to learn and use ReactBootstrap for styling and layout. This was my first time using ReactBootstrap components, and I found it easy to use with its components and existing stylesheets. However, I wasn't able to modify some of the predefined styles of the `Table` component, for example: `border-radius`, and `margin` between rows not seeming to work.
 
 Extra credits included implementing search and sort, as well as writing unit test cases with Cypress. I was able to implement search and sort, however, writing unit test cases in Cypress is planned for the next iteration.
