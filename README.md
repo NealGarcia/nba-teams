@@ -37,7 +37,7 @@ To Start Server:
 
 To Visit App:
 
-`localhost:3000/ideas`
+https://www.nealgarcia.com/nba-teams
 
 ## Reflection
 This project was developed as a take-home assignment for a frontend UI developer position with the goal of the challenge being to build out a UI from a given Figma prototype. 
