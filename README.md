@@ -38,12 +38,3 @@ To Start Server:
 To Visit App:
 
 https://www.nealgarcia.com/nba-teams
-
-## Reflection
-This project was developed as a take-home assignment for a frontend UI developer position with the goal of the challenge being to build out a UI from a given Figma prototype. 
-
-The strict rules of the challenge included using React as the framework, optional use of ReactBootstrap package to create the layout, and free-range to create components best suited to my solution.
-
-Though it was optional, I chose to learn and use ReactBootstrap for styling and layout. This was my first time using ReactBootstrap components, and I found it easy to use with its components and existing stylesheets. However, I wasn't able to modify some of the predefined styles of ReactBootstrap components, for example: modifying `border-radius`, and `margin` between rows of the `Table` component not seeming to work, also changing the width of the `Offcanvas` side panel component.
-
-Extra credits included implementing search and sort, as well as writing unit test cases with Cypress. I was able to implement search and sort, however, writing unit test cases in Cypress is planned for the next iteration.
