@@ -4,7 +4,7 @@ A front-end, single-page application built with React, ReactBootstrap JavaScript
 
 - Teams are displayed in the form of table & rows and are displayed in alphabetical order by city - users can toggle ascending or descending order by clicking the arrow in the city column header.
 
-- Clicking on a row will highlight the selected team and will open a side panel that displas. detailed information of a game played by the team in season 2021.
+- Clicking on a row will highlight the selected team and will open a side panel that displays detailed information of a game played by the team in season 2021.
 
 - Using the search bar will provide a list of player search results in a separate side panel. Clicking on a player will open a modal displaying the selected player's stats.
 
