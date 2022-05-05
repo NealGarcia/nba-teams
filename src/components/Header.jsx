@@ -3,6 +3,7 @@ import "../styles/Header.css";
 import Search from "@material-ui/icons/Search";
 import { API_URL_PLAYERS } from '../config'
 import SearchResults from "./SearchResults";
+import basketball from '../assets/basketball.png'
 
 function Header(props) {
     const [searchValue, setSearchValue] = useState("")
@@ -25,7 +26,10 @@ function Header(props) {
 
   return (
     <div className="mt-5" id = "container">
-      <h1 className="title">NBA TEAMS</h1>
+      <div className = "title">
+        <h1 className="titleText">NBA TEAMS </h1>
+        <img id = "logo" src = {basketball} alt = "logo"/>
+      </div>
       <form className = "search" onSubmit={(e) => {
             e.preventDefault()
             fetchPlayerData(searchValue)

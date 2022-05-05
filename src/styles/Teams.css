@@ -6,7 +6,6 @@
     background-color: #074684;
     color: white;
     text-align: center;
-
     border-radius: 5px !important; /* not working */
 }
 
@@ -33,5 +32,10 @@ tr{
 
 .sortIcon{
     cursor: pointer;
+}
+
+.sortIcon:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
 }
 

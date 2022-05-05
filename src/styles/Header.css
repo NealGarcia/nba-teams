@@ -1,12 +1,24 @@
-.title{
-    font-family: 'Roboto';
-    font-style: normal;
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
+.titleText{
+    font-family: 'Fugaz One', cursive;    font-style: normal;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 3em;
     line-height: 56px;    
     display: flex;
     align-items: center;
     color: #074684;
+}
+
+#logo{
+    width: 2.5em;
+    height: 2.5em;
+    margin-top: 5px;
+    margin-left: 1em;
+}
+
+.title{
+    display: flex;
 }
 
 .search{
