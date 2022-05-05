@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/nba-teams/static/css/main.a6f41d46.css",
-    "main.js": "/nba-teams/static/js/main.5320baac.js",
+    "main.css": "/nba-teams/static/css/main.16cf83dd.css",
+    "main.js": "/nba-teams/static/js/main.955f3f7d.js",
+    "static/media/basketball.png": "/nba-teams/static/media/basketball.5d95b2e36b2036a73f88.png",
     "index.html": "/nba-teams/index.html",
-    "main.a6f41d46.css.map": "/nba-teams/static/css/main.a6f41d46.css.map",
-    "main.5320baac.js.map": "/nba-teams/static/js/main.5320baac.js.map"
+    "main.16cf83dd.css.map": "/nba-teams/static/css/main.16cf83dd.css.map",
+    "main.955f3f7d.js.map": "/nba-teams/static/js/main.955f3f7d.js.map"
   },
   "entrypoints": [
-    "static/css/main.a6f41d46.css",
-    "static/js/main.5320baac.js"
+    "static/css/main.16cf83dd.css",
+    "static/js/main.955f3f7d.js"
   ]
 }
