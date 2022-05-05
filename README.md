@@ -13,16 +13,13 @@ View the deployed application here: https://www.nealgarcia.com/nba-teams
 ## Project Screen Shots
 
 **Home Page**
-![Screen Shot 2022-04-12 at 8 41 29 PM](https://user-images.githubusercontent.com/89617446/163082432-e43b6632-7f8f-4688-8855-f88eba6cd6e3.png)
+![Screen Shot 2022-05-05 at 12 40 24 PM](https://user-images.githubusercontent.com/89617446/166981540-c02a7cd6-ebbe-428a-88cf-c8f291790ad1.png)
 
 **Game Details**
-![Screen Shot 2022-04-12 at 8 42 09 PM](https://user-images.githubusercontent.com/89617446/163082510-dc090e2c-f2ba-41b9-822f-25f7f498bd70.png)
-
-**Search Results**
-![Screen Shot 2022-04-12 at 8 42 24 PM](https://user-images.githubusercontent.com/89617446/163082543-c5cb94ba-29bf-4cdc-ae31-99a564b15f74.png)
+![Screen Shot 2022-05-05 at 12 40 37 PM](https://user-images.githubusercontent.com/89617446/166981550-6e453549-4d56-42c5-92f3-6368ed86a44f.png)
 
 **Player Details**
-![Screen Shot 2022-04-12 at 8 42 33 PM](https://user-images.githubusercontent.com/89617446/163082568-eaf2ef9f-241f-40ea-920d-07e3de49e004.png)
+![Screen Shot 2022-05-05 at 12 40 49 PM](https://user-images.githubusercontent.com/89617446/166981557-66e5a6df-114c-466c-8ff5-8f6720a6893c.png)
 
 ## Installation and Setup Instructions
 Clone down this repository. You will need `node` and `npm` installed globally on your machine.
